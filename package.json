@@ -1,0 +1,22 @@
+{
+  "name": "terminal-peli",
+  "version": "1.0.0",
+  "description": "veri hasu/huono peli",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "bin": {
+    "terminal-peli": "index.js"
+  },
+  "type": "module",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^12.1.0",
+    "figlet": "^1.7.0",
+    "inquirer": "^10.1.6",
+    "ora": "^8.0.1"
+  }
+}
