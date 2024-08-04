@@ -19,7 +19,7 @@ program.action(() => {
         type: "list",
         name: "choice",
         message: " you are in bed. its the first day of school, you are going to the seventh grade! :",
-        choices: ["wake up", " go back to sleep",],
+        choices: ["wake up", "go back to sleep",],
       },
     ])
     .then((result) => {
