@@ -8,6 +8,7 @@ import figlet from "figlet";
 
 var isBreakfastEaten = false;
 var istThereclothes = false;
+var areTheTeethBrushed = false
 
 program.version("1.0.0").description("myden hasu peli");
 program.action(() => {
@@ -75,6 +76,16 @@ function wakeup() {
         setTimeout(() => {
           spinner.succeed("you are wearing clhothes");
         }, 1500);
+      }
+
+      if (result.choice === "leave for school") {
+        if (areTheTeethBrushed === false) {
+          const spinner = ora(`...`).start(); // Start the spinner
+          setTimeout(() => {
+            spinner.fail("your breath smells");
+          }, 1500);
+          return;
+        }
       }
 
       if (result.choice === "brush teeth") {
