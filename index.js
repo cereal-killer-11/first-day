@@ -19,7 +19,7 @@ program.action(() => {
         type: "list",
         name: "choice",
         message: " you are in bed. its the first day of school, you are going to the seventh grade! :",
-        choices: ["wake up", "slep",],
+        choices: ["wake up", " go back to sleep",],
       },
     ])
     .then((result) => {
@@ -32,3 +32,12 @@ program.action(() => {
 });
 
 program.parse(process.argv);
+/*
+then((answers) => {
+  const exampleFunction = examples[answers.selectedExample];
+  if (exampleFunction) {
+    exampleFunction();
+  } else {
+    console.error("Invalid selection");
+  }
+}); */
