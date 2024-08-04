@@ -18,41 +18,61 @@ program.action(() => {
       {
         type: "list",
         name: "choice",
-        message: " you are in bed. its the first day of school, you are going to the seventh grade! :",
-        choices: ["wake up", "go back to sleep",],
+        message:
+          " you are in bed. its the first day of school, you are going to the seventh grade! :",
+        choices: ["wake up", "go back to sleep"],
       },
     ])
     .then((result) => {
       if (result.choice === "go back to sleep") {
-        sleepEnd()
+        sleepEnd();
       }
 
-        if (result.choice === "wake up") {
-          wakeup()
-        }
-      
-
-
+      if (result.choice === "wake up") {
+        wakeup();
+      }
     });
 });
 
 program.parse(process.argv);
 
-
-
 function sleepEnd() {
   const spinner = ora(`...`).start(); // Start the spinner
-
   setTimeout(() => {
     spinner.fail("you were late to school END");
-  }, 1500); 
+  }, 1500);
 }
 
-
 function wakeup() {
-  const spinner = ora(`...`).start(); // Start the spinner
+  inquirer
+    .prompt([
+      {
+        type: "list",
+        name: "choice",
+        message: " You woke up",
+        choices: ["eat", "put on clhothes", "brush teeth"],
+      },
+    ])
+    .then((result) => {
+      if (result.choice === "eat") {
+        const spinner = ora(`...`).start(); // Start the spinner
+        setTimeout(() => {
+          spinner.succeed("you ate porrige");
+        }, 1500);
+      }
 
-  setTimeout(() => {
-    spinner.succeed("you wake up");
-  }, 1500); 
-} 
+      if (result.choice === "put on clhothes") {
+        const spinner = ora(`...`).start(); // Start the spinner
+        setTimeout(() => {
+          spinner.succeed("you are wearing clhothes");
+        }, 1500);
+      }
+
+      if (result.choice === "brush teeth") {
+        const spinner = ora(`...`).start(); // Start the spinner
+        setTimeout(() => {
+          spinner.succeed("your theeth are squeky clean");
+        }, 1500);
+      }
+    });
+}
