@@ -5,10 +5,11 @@ import chalk from "chalk";
 import inquirer from "inquirer";
 import ora from "ora";
 import figlet from "figlet";
-import { after } from "node:test";
+
+var isBreakfastEaten = false;
+var istThereclothes = false;
 
 program.version("1.0.0").description("myden hasu peli");
-// testi
 program.action(() => {
   console.log(
     chalk.red(figlet.textSync("first day", { horizontalLayout: "full" }))
@@ -50,18 +51,26 @@ function wakeup() {
         type: "list",
         name: "choice",
         message: " You woke up",
-        choices: ["eat", "put on clhothes", "brush teeth"],
+        choices: ["eat", "put on clhothes", "brush teeth", "leave for school"],
       },
     ])
     .then((result) => {
       if (result.choice === "eat") {
+        isBreakfastEaten = true;
         const spinner = ora(`...`).start(); // Start the spinner
         setTimeout(() => {
           spinner.succeed("you ate porrige");
         }, 1500);
       }
 
-      if (result.choice === "put on clhothes") {
+      if (result.choice === "leave for school") {
+        if (istThereclothes === false) {
+          const spinner = ora(`...`).start(); // Start the spinner
+          setTimeout(() => {
+            spinner.fail("you are naked");
+          }, 1500);
+          return;
+        }
         const spinner = ora(`...`).start(); // Start the spinner
         setTimeout(() => {
           spinner.succeed("you are wearing clhothes");
@@ -72,6 +81,20 @@ function wakeup() {
         const spinner = ora(`...`).start(); // Start the spinner
         setTimeout(() => {
           spinner.succeed("your theeth are squeky clean");
+        }, 1500);
+      }
+
+      if (result.choice === "leave for school") {
+        if (isBreakfastEaten === false) {
+          const spinner = ora(`...`).start(); // Start the spinner
+          setTimeout(() => {
+            spinner.fail("you didn't eat");
+          }, 1500);
+          return;
+        }
+        const spinner = ora(`...`).start(); // Start the spinner
+        setTimeout(() => {
+          spinner.succeed("you left for schhol");
         }, 1500);
       }
     });
