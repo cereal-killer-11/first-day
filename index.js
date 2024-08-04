@@ -23,7 +23,7 @@ program.action(() => {
       },
     ])
     .then((result) => {
-      const spinner = ora(`kalkuloidaan anseria...`).start(); // Start the spinner
+      const spinner = ora(`kalkuloidaan...`).start(); // Start the spinner
 
       setTimeout(() => {
         spinner.succeed(chalk.green("Ok!"));
