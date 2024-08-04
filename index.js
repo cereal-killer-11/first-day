@@ -8,7 +8,7 @@ import figlet from "figlet";
 import { after } from "node:test";
 
 program.version("1.0.0").description("myden hasu peli");
-
+// testi
 program.action(() => {
   console.log(
     chalk.red(figlet.textSync("first day", { horizontalLayout: "full" }))
