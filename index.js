@@ -8,7 +8,7 @@ import figlet from "figlet";
 
 var isBreakfastEaten = false;
 var istThereclothes = false;
-var areTheTeethBrushed = false
+var areTheTeethBrushed = false;
 
 program.version("1.0.0").description("myden hasu peli");
 program.action(() => {
