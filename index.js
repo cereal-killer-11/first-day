@@ -23,21 +23,36 @@ program.action(() => {
       },
     ])
     .then((result) => {
-      const spinner = ora(`kalkuloidaan...`).start(); // Start the spinner
+      if (result.choice === "go back to sleep") {
+        sleepEnd()
+      }
 
-      setTimeout(() => {
-        spinner.succeed(chalk.green("Ok!"));
-      }, 3000);
+        if (result.choice === "wake up") {
+          wakeup()
+        }
+      
+
+
     });
 });
 
 program.parse(process.argv);
-/*
-then((answers) => {
-  const exampleFunction = examples[answers.selectedExample];
-  if (exampleFunction) {
-    exampleFunction();
-  } else {
-    console.error("Invalid selection");
-  }
-}); */
+
+
+
+function sleepEnd() {
+  const spinner = ora(`...`).start(); // Start the spinner
+
+  setTimeout(() => {
+    spinner.fail("you were late to school END");
+  }, 1500); 
+}
+
+
+function wakeup() {
+  const spinner = ora(`...`).start(); // Start the spinner
+
+  setTimeout(() => {
+    spinner.succeed("you wake up");
+  }, 1500); 
+} 
