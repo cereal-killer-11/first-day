@@ -74,7 +74,7 @@ function wakeup() {
         }
         const spinner = ora(`...`).start(); // Start the spinner
         setTimeout(() => {
-          spinner.succeed("you are wearing clhothes");
+          spinner.succeed("you are wearing clothes");
         }, 1500);
       }
 
@@ -105,7 +105,7 @@ function wakeup() {
         }
         const spinner = ora(`...`).start(); // Start the spinner
         setTimeout(() => {
-          spinner.succeed("you left for schhol");
+          spinner.succeed("you left for school");
         }, 1500);
       }
     });
