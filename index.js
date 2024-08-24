@@ -45,13 +45,21 @@ function sleepEnd() {
   }, 1500);
 }
 
-function wakeup() {
+async function showSpinner(message) {
+  const spinner = ora(`...`).start(); // Start the spinner
+  await new Promise(r => setTimeout(r, 1000));
+  spinner.succeed(message);
+  return
+}
+
+async function  wakeup() {
+  await showSpinner("You woke up")
   inquirer
     .prompt([
       {
         type: "list",
         name: "choice",
-        message: " You woke up",
+        message: "Choose what to do next",
         choices: ["eat", "put on clhothes", "brush teeth", "leave for school"],
       },
     ])
