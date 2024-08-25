@@ -2,7 +2,7 @@
 
 import { program } from "commander";
 import chalk from "chalk";
-import inquirer from "inquirer"; //myderulez
+import inquirer from "inquirer"; //myderulez :D
 import ora from "ora";
 import figlet from "figlet";
 
@@ -69,16 +69,6 @@ async function wakeup() {
         eat();
       }
 
-      if (result.choice === "leave for school") {
-        const spinner = ora(`...`).start(); // Start the spinner
-        setTimeout(() => {
-          spinner.succeed("you are wearing clothes");
-        }, 1500);
-      }
-
-      if (result.choice === "leave for school") {
-      }
-
       if (result.choice === "brush teeth") {
         const spinner = ora(`...`).start(); // Start the spinner
         setTimeout(() => {
@@ -87,6 +77,7 @@ async function wakeup() {
       }
 
       if (result.choice === "leave for school") {
+        AreThingsDone();
         const spinner = ora(`...`).start(); // Start the spinner
         setTimeout(() => {
           spinner.succeed("you left for school");
@@ -108,10 +99,13 @@ async function eat() {
     ])
     .then((result) => {
       if (result.choice === "leave for school") {
-        const spinner = ora(`...`).start(); // Start the spinner
-        setTimeout(() => {
-          spinner.succeed("you left for school");
-        }, 1500);
+        if(AreThingsDone()) {
+          const spinner = ora(`...`).start(); // Start the spinner
+          setTimeout(() => {
+            spinner.succeed("you left for school");
+          }, 1500);
+        }    
+
       }
     });
 }
@@ -122,20 +116,21 @@ function AreThingsDone() {
     setTimeout(() => {
       spinner.fail("you are naked");
     }, 1500);
-    return;
+    return false;
   }
   if (isBreakfastEaten === false) {
     const spinner = ora(`...`).start(); // Start the spinner
     setTimeout(() => {
       spinner.fail("you didn't eat");
     }, 1500);
-    return;
+    return false;
   }
   if (areTheTeethBrushed === false) {
     const spinner = ora(`...`).start(); // Start the spinner
     setTimeout(() => {
       spinner.fail("your breath smells");
     }, 1500);
-    return;
+    return false;
   }
+  return true
 }
